@@ -1,0 +1,34 @@
+<?xml version="1.0" encoding="utf-8"?>
+<menu xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:tools="http://schemas.android.com/tools"
+    tools:showIn="navigation_view">
+
+    <group android:checkableBehavior="single">
+
+        <item
+            android:id="@+id/homeFragment"
+            android:icon="@drawable/ic_home"
+            android:title="Bosh sahifa" />
+
+        <item
+            android:id="@+id/productsFragment"
+            android:icon="@drawable/ic_products"
+            android:title="Mahsulolar" />
+
+        <item
+            android:id="@+id/warehouseFragment"
+            android:icon="@drawable/ic_warehouse"
+            android:title="Ombor" />
+
+        <item
+            android:id="@+id/statisticsFragment"
+            android:icon="@drawable/ic_statistics"
+            android:title="Statistika" />
+
+        <item
+            android:id="@+id/settingFragment"
+            android:icon="@drawable/ic_setting"
+            android:title="Sozlamalar" />
+
+    </group>
+</menu>
