@@ -1,9 +1,11 @@
 package uz.ibrohim.nonkaboob.models
 
-data class Product(
+data class ProductItem(
     val id: String = "",
     val categoryId: String = "",
     val name: String = "",
-    val price: Double = 0.0,
+    val count: String = "",
+    val warehouseId: String = "",
+    val price: String = "",
     val image: String = ""
 )

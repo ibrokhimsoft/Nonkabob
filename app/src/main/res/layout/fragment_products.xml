@@ -21,15 +21,16 @@
             android:textSize="22sp" />
 
         <TextView
+            android:id="@+id/product_add"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
             android:layout_alignParentEnd="true"
-            android:drawableStart="@drawable/ic_add"
             android:drawablePadding="10dp"
             android:fontFamily="@font/poppins_medium"
             android:text="Qo'shish"
             android:textColor="#F56C14"
-            android:textSize="22sp" />
+            android:textSize="22sp"
+            app:drawableStartCompat="@drawable/ic_add" />
     </RelativeLayout>
 
     <androidx.recyclerview.widget.RecyclerView
@@ -37,11 +38,15 @@
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
         android:layout_margin="10dp"
-        app:layoutManager="androidx.recyclerview.widget.LinearLayoutManager" />
+        android:orientation="horizontal"
+        app:layoutManager="androidx.recyclerview.widget.LinearLayoutManager"
+        tools:listitem="@layout/item_category" />
 
     <androidx.recyclerview.widget.RecyclerView
         android:id="@+id/product_rv"
         android:layout_width="match_parent"
-        android:layout_height="wrap_content" />
+        android:layout_height="wrap_content"
+        app:layoutManager="androidx.recyclerview.widget.LinearLayoutManager"
+        tools:listitem="@layout/item_product" />
 
 </LinearLayout>

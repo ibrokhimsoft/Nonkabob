@@ -4,20 +4,20 @@ import android.view.LayoutInflater
 import android.view.ViewGroup
 import androidx.recyclerview.widget.RecyclerView
 import uz.ibrohim.nonkaboob.databinding.ItemCategoryBinding
-import uz.ibrohim.nonkaboob.models.Category
+import uz.ibrohim.nonkaboob.models.CategoryItem
 
 class ProductCategoryAdapter(
-    private val list: ArrayList<Category>,
-    private val onClick: (Category) -> Unit
+    private val list: ArrayList<CategoryItem>,
+    private val onClick: (CategoryItem) -> Unit
 ) : RecyclerView.Adapter<ProductCategoryAdapter.VH>() {
 
     inner class VH(val binding: ItemCategoryBinding) :
         RecyclerView.ViewHolder(binding.root) {
-        fun bind(category: Category) {
-            binding.txtTitle.text = category.name
-            binding.imgIcon.setImageResource(category.icon)
+        fun bind(categoryItem: CategoryItem) {
+            binding.txtTitle.text = categoryItem.name
+            binding.imgIcon.setImageResource(categoryItem.icon)
 
-            itemView.setOnClickListener { onClick(category) }
+            itemView.setOnClickListener { onClick(categoryItem) }
         }
     }
 

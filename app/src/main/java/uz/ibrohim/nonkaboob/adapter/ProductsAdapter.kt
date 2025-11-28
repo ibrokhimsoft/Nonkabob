@@ -5,25 +5,25 @@ import android.view.ViewGroup
 import androidx.recyclerview.widget.RecyclerView
 import com.bumptech.glide.Glide
 import uz.ibrohim.nonkaboob.databinding.ItemProductBinding
-import uz.ibrohim.nonkaboob.models.Product
+import uz.ibrohim.nonkaboob.models.ProductItem
 
 class ProductsAdapter(
-    private val list: ArrayList<Product>,
-    private val onClick: (Product) -> Unit
+    private val list: ArrayList<ProductItem>,
+    private val onClick: (ProductItem) -> Unit
 ) : RecyclerView.Adapter<ProductsAdapter.VH>() {
 
     inner class VH(val binding: ItemProductBinding) :
         RecyclerView.ViewHolder(binding.root) {
-        fun bind(product: Product) {
-            binding.txtName.text = product.name
-            binding.txtPrice.text = "${product.price} so'm"
+        fun bind(productItem: ProductItem) {
+            binding.txtName.text = productItem.name
+            binding.txtCount.text = productItem.count
+            binding.txtPrice.text = "${productItem.price} so'm"
 
-            // Rasm yuklash (Glide)
-            Glide.with(binding.imgProduct.context)
-                .load(product.image)
-                .into(binding.imgProduct)
+            Glide.with(itemView.context)
+                .load(productItem.image)
+                .into(binding.productImage)
 
-            itemView.setOnClickListener { onClick(product) }
+            itemView.setOnClickListener { onClick(productItem) }
         }
     }
 
@@ -37,6 +37,12 @@ class ProductsAdapter(
 
     override fun onBindViewHolder(holder: VH, position: Int) {
         holder.bind(list[position])
+    }
+
+    fun setData(newList: List<ProductItem>) {
+        list.clear()
+        list.addAll(newList)
+        notifyDataSetChanged()
     }
 
     override fun getItemCount() = list.size

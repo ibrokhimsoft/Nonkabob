@@ -1,6 +1,6 @@
 package uz.ibrohim.nonkaboob.models
 
-data class Category(
+data class CategoryItem(
     val id: String = "",
     val name: String = "",
     val icon: Int = 0
