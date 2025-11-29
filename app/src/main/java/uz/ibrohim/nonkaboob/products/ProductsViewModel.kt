@@ -17,6 +17,9 @@ class ProductsViewModel @Inject constructor(
     private val _products = MutableLiveData<List<ProductItem>>()
     val products: LiveData<List<ProductItem>> get() = _products
 
+    private val _addState = MutableLiveData<Boolean>()   // success/error status
+    val addState: LiveData<Boolean> get() = _addState
+
     private var fullList: List<ProductItem> = emptyList()
 
     init {
@@ -32,5 +35,12 @@ class ProductsViewModel @Inject constructor(
 
     fun filterByCategory(cat: String) {
         _products.value = fullList.filter { it.categoryId == cat }
+    }
+
+    fun addProduct(item: ProductItem, image: ByteArray, onResult: (Boolean) -> Unit) {
+        viewModelScope.launch {
+            val success = repo.addProduct(item, image)
+            onResult(success)
+        }
     }
 }

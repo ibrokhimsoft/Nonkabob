@@ -1,0 +1,122 @@
+<?xml version="1.0" encoding="utf-8"?>
+<androidx.cardview.widget.CardView xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    android:layout_width="match_parent"
+    android:layout_height="wrap_content"
+    app:cardCornerRadius="20dp"
+    app:cardElevation="8dp"
+    android:layout_margin="20dp">
+
+    <ScrollView
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:padding="20dp">
+
+        <LinearLayout
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:orientation="vertical">
+
+            <!-- Title -->
+            <TextView
+                android:id="@+id/title"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:text="Mahsulot qo‘shish"
+                android:textSize="20sp"
+                android:textStyle="bold"
+                android:textColor="#000"
+                android:fontFamily="@font/poppins_medium" />
+
+            <!-- IMAGE PICK -->
+            <FrameLayout
+                android:id="@+id/btnPickImage"
+                android:layout_width="120dp"
+                android:layout_height="120dp"
+                android:layout_marginTop="15dp"
+                android:layout_gravity="center"
+                android:background="@drawable/bg_image_placeholder"
+                android:padding="10dp">
+
+                <ImageView
+                    android:id="@+id/imgPreview"
+                    android:layout_width="match_parent"
+                    android:layout_height="match_parent"
+                    android:scaleType="centerCrop"
+                    android:src="@drawable/ic_image" />
+            </FrameLayout>
+
+            <!-- Name -->
+            <EditText
+                android:id="@+id/edtName"
+                android:layout_width="match_parent"
+                android:layout_height="55dp"
+                android:hint="Mahsulot nomi"
+                android:background="@drawable/bg_input"
+                android:padding="15dp"
+                android:textColor="#000"
+                android:textColorHint="#9E9E9E"
+                android:layout_marginTop="15dp"
+                android:fontFamily="@font/poppins_regular" />
+
+            <!-- Price -->
+            <EditText
+                android:id="@+id/edtPrice"
+                android:layout_width="match_parent"
+                android:layout_height="55dp"
+                android:inputType="number"
+                android:hint="Narxi (so‘m)"
+                android:background="@drawable/bg_input"
+                android:padding="15dp"
+                android:textColor="#000"
+                android:textColorHint="#9E9E9E"
+                android:layout_marginTop="10dp"
+                android:fontFamily="@font/poppins_regular" />
+
+            <!-- Count -->
+            <EditText
+                android:id="@+id/edtCount"
+                android:layout_width="match_parent"
+                android:layout_height="55dp"
+                android:hint="Soni (ombordagi)"
+                android:inputType="number"
+                android:background="@drawable/bg_input"
+                android:padding="15dp"
+                android:textColor="#000"
+                android:textColorHint="#9E9E9E"
+                android:layout_marginTop="10dp"
+                android:fontFamily="@font/poppins_regular" />
+
+            <!-- CATEGORY -->
+            <Spinner
+                android:id="@+id/category"
+                android:layout_width="match_parent"
+                android:layout_height="55dp"
+                android:padding="10dp"
+                android:background="@drawable/bg_input"
+                android:layout_marginTop="10dp" />
+
+            <Spinner
+                android:id="@+id/warehouse"
+                android:layout_width="match_parent"
+                android:layout_height="55dp"
+                android:padding="10dp"
+                android:background="@drawable/bg_input"
+                android:layout_marginTop="10dp" />
+
+            <!-- SAVE BUTTON -->
+            <Button
+                android:id="@+id/btnSave"
+                android:layout_width="match_parent"
+                android:layout_height="55dp"
+                android:text="Saqlash"
+                android:textSize="18sp"
+                android:textColor="#fff"
+                android:backgroundTint="#F56C14"
+                android:fontFamily="@font/poppins_medium"
+                android:layout_marginTop="20dp" />
+        </LinearLayout>
+
+    </ScrollView>
+
+</androidx.cardview.widget.CardView>

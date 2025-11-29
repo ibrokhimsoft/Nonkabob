@@ -1,8 +1,10 @@
 package uz.ibrohim.nonkaboob.adapter
 
+import android.graphics.Color
 import android.view.LayoutInflater
 import android.view.ViewGroup
 import androidx.recyclerview.widget.RecyclerView
+import uz.ibrohim.nonkaboob.R
 import uz.ibrohim.nonkaboob.databinding.ItemCategoryBinding
 import uz.ibrohim.nonkaboob.models.CategoryItem
 
@@ -13,11 +15,20 @@ class ProductCategoryAdapter(
 
     inner class VH(val binding: ItemCategoryBinding) :
         RecyclerView.ViewHolder(binding.root) {
-        fun bind(categoryItem: CategoryItem) {
-            binding.txtTitle.text = categoryItem.name
-            binding.imgIcon.setImageResource(categoryItem.icon)
+        fun bind(item: CategoryItem) {
+            binding.txtTitle.text = item.name
+            binding.imgIcon.setImageResource(item.icon)
 
-            itemView.setOnClickListener { onClick(categoryItem) }
+            // 🔥 Selected bo'lsa background + text color o'zgaradi
+            if (item.selected) {
+                binding.root.setBackgroundResource(R.drawable.bg_category_selected)
+                binding.txtTitle.setTextColor(Color.WHITE)
+            } else {
+                binding.root.setBackgroundResource(R.drawable.bg_category_unselected)
+                binding.txtTitle.setTextColor(Color.BLACK)
+            }
+
+            itemView.setOnClickListener { onClick(item) }
         }
     }
 

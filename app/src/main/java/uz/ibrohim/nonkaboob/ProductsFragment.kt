@@ -10,6 +10,9 @@ import uz.ibrohim.nonkaboob.adapter.ProductCategoryAdapter
 import uz.ibrohim.nonkaboob.adapter.ProductsAdapter
 import uz.ibrohim.nonkaboob.databinding.FragmentHomeBinding
 import uz.ibrohim.nonkaboob.databinding.FragmentProductsBinding
+import uz.ibrohim.nonkaboob.models.CategoryItem
+import uz.ibrohim.nonkaboob.products.AddProductDialog
+import uz.ibrohim.nonkaboob.products.ProductsViewModel
 
 class ProductsFragment : Fragment() {
 
@@ -21,9 +24,9 @@ class ProductsFragment : Fragment() {
     private val viewModel: ProductsViewModel by viewModels()
 
     private val categoryList = arrayListOf(
-        CategoryItem("Fast-Food", true),
-        CategoryItem("Ichimliklar"),
-        CategoryItem("Dessertlar")
+        CategoryItem(0,"Fast-Food", R.drawable.ic_burger,true),
+        CategoryItem(1,"Ichimliklar", R.drawable.ic_drink),
+        CategoryItem(2,"Shirinliklar", R.drawable.ic_ice_cream)
     )
 
     override fun onCreateView(
@@ -34,7 +37,40 @@ class ProductsFragment : Fragment() {
     }
 
     override fun onViewCreated(view: View, savedInstanceState: Bundle?) {
-        super.onViewCreated(view, savedInstanceState)
+        setupCategoryRv()
+        setupProductsRv()
+        observeProducts()
+
+        binding.productAdd.setOnClickListener {
+            openAddProductDialog()
+        }
+    }
+
+    private fun setupCategoryRv() {
+        categoryAdapter = ProductCategoryAdapter(categoryList) { clickedItem ->
+            categoryList.forEachIndexed { index, item ->
+                categoryList[index] = item.copy(selected = item.id == clickedItem.id)
+            }
+
+            categoryAdapter.notifyDataSetChanged()
+
+            viewModel.filterByCategory(clickedItem.name)
+        }
+    }
+
+    private fun setupProductsRv() {
+        productAdapter = ProductsAdapter(arrayListOf()) {}
+        binding.productRv.adapter = productAdapter
+    }
+
+    private fun observeProducts() {
+        viewModel.products.observe(viewLifecycleOwner) { list ->
+            productAdapter.setData(list)
+        }
+    }
+
+    private fun openAddProductDialog() {
+        AddProductDialog().show(childFragmentManager, "ADD_PRODUCT")
     }
 
     override fun onDestroyView() {

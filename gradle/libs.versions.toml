@@ -21,6 +21,7 @@ coroutines = "1.8.0"
 googleGmsGoogleServices = "4.4.4"
 firebaseFirestore = "26.0.2"
 hilt = "2.48"
+firebaseStorage = "22.0.1"
 
 [libraries]
 androidx-core-ktx = { group = "androidx.core", name = "core-ktx", version.ref = "coreKtx" }
@@ -68,6 +69,7 @@ hilt-android = { module = "com.google.dagger:hilt-android", version.ref = "hilt"
 hilt-compiler = { module = "com.google.dagger:hilt-compiler", version.ref = "hilt" }
 hilt-navigation = { module = "androidx.hilt:hilt-navigation-fragment", version = "1.1.0" }
 hilt-compiler-androidx = { module = "androidx.hilt:hilt-compiler", version = "1.1.0" }
+firebase-storage = { group = "com.google.firebase", name = "firebase-storage", version.ref = "firebaseStorage" }
 
 [plugins]
 android-application = { id = "com.android.application", version.ref = "agp" }
