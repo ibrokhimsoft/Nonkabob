@@ -1,6 +1,10 @@
 plugins {
     alias(libs.plugins.android.application)
     alias(libs.plugins.kotlin.android)
+    alias(libs.plugins.google.gms.google.services)
+    id("org.jetbrains.kotlin.kapt")
+    id("kotlin-parcelize")
+    alias(libs.plugins.hilt)
 }
 
 android {
@@ -47,6 +51,8 @@ dependencies {
     implementation(libs.material)
     implementation(libs.androidx.activity)
     implementation(libs.androidx.constraintlayout)
+    implementation(libs.firebase.firestore)
+    implementation(libs.firebase.storage)
     testImplementation(libs.junit)
     androidTestImplementation(libs.androidx.junit)
     androidTestImplementation(libs.androidx.espresso.core)
@@ -76,6 +82,12 @@ dependencies {
 
     //CircleImage
     implementation(libs.hdodenhof.circleimage)
+
+    // Hilt
+    implementation(libs.hilt.android)
+    kapt(libs.hilt.compiler)
+    implementation(libs.hilt.navigation)
+    kapt(libs.hilt.compiler.androidx)
 
     //Coroutines
 //    implementation(libs.coroutines.core)

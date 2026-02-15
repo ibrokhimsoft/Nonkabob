@@ -20,6 +20,11 @@
             android:icon="@drawable/ic_warehouse"
             android:title="Ombor" />
 
+<!--        <item-->
+<!--            android:id="@+id/categoryFragment"-->
+<!--            android:icon="@drawable/ic_category"-->
+<!--            android:title="Kategoriya" />-->
+
         <item
             android:id="@+id/statisticsFragment"
             android:icon="@drawable/ic_statistics"
